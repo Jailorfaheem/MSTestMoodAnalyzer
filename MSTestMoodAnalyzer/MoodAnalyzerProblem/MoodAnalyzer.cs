@@ -20,6 +20,12 @@ namespace MSTestMoodAnalyzerProblem
         {
             this.message = message;
         }
+        //initialising the default constructor
+        public MoodAnalyzer()
+        {
+            this.message = null;
+        }
+
         //This method analyzes mood
         public string AnalyseMood()
         {
@@ -33,9 +39,28 @@ namespace MSTestMoodAnalyzerProblem
                 else
                     return "sad";
             }
-            catch (NullReferenceException message)
+            catch (NullReferenceException ex)
             {
-                return "happy";
+                //return "happy";
+                throw new CustomException(CustomException.ExceptionType.Null_Type_Exception, "Message should not be null");
+            }
+        }
+        public string AnalyseMood1()
+        {
+            try
+            {
+                //if condition for to check null is present or not
+                if (message.ToLower().Contains(string.Empty))
+                {
+                    return "happy";
+                }
+                else
+                    return "sad";
+            }
+            catch (NullReferenceException ex)
+            {
+                //return "happy";
+                throw new CustomException(CustomException.ExceptionType.Empty_Type_Exception, "Message should not be empty");
             }
         }
     }
