@@ -4,38 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSTestMoodAnalyzerProblem
+namespace MoodAnalyserProblem
 {
-    public class MoodAnalyzer
+    public class MoodAnalyser
     {
-        //instance variable
         public string message;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MoodAnalyzer"/> class.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        //creating constructor for mood analyzer
-        public MoodAnalyzer(string message)
+        //initialising the parameterised constructor
+        public MoodAnalyser(string message)
         {
             this.message = message;
         }
-        //This method analyzes mood
+        //initialising the default constructor
+        public MoodAnalyser()
+        {
+            this.message = null;
+        }
+
+        //declaring the analyse mood method
         public string AnalyseMood()
         {
+            //the try and catch block is for exception handling
             try
             {
-                //if condition for to check null is present or not
-                if (message.ToLower().Contains(""))
+                //this is the custom exception that we declared for checking empty messages. exception type is an enum followed by the message.
+                if (this.message.Equals(string.Empty))
                 {
-                    return "happy";
+                    throw new CustomMoodException(CustomMoodException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+                }
+
+                if (this.message.ToLower().Contains("sad"))
+                {
+                    return "SAD";
                 }
                 else
-                    return "sad";
+                {
+                    return "HAPPY";
+                }
             }
-            catch (NullReferenceException message)
+            //this shows that it should not be null. NullREferenceException is a predefined exception class
+            catch (NullReferenceException ex)
             {
-                return "happy";
+                throw new CustomMoodException(CustomMoodException.ExceptionType.NULL_VALUE, "Mood can not be null");
             }
         }
     }
