@@ -15,10 +15,10 @@ namespace MoodAnalyserTest
             string message = "I am in sad mood";
             string expected = "SAD";
             //creating object of moodanalyzer class and passing message
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
 
             //Act
-            string actual = moodAnalyzer.AnalyseMood();
+            string actual = moodAnalyzer.AnalyseMood(message);
 
             //Assert
             //comparing actual and expected value
@@ -33,10 +33,10 @@ namespace MoodAnalyserTest
             string message = "I am in Any mood";
             string expected = "HAPPY";
             //creating object of moodanalyzer class and passing message
-            MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);
+            MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
 
             //Act
-            string actual = moodAnalyzer.AnalyseMood();
+            string actual = moodAnalyzer.AnalyseMood(message);
 
             //Assert
             //comparing actual and expected value

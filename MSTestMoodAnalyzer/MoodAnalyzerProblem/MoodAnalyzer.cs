@@ -15,13 +15,12 @@ namespace MSTestMoodAnalyzerProblem
         /// Initializes a new instance of the <see cref="MoodAnalyzer"/> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        //creating constructor for mood analyzer
-        public MoodAnalyzer(string message)
-        {
-            this.message = message;
-        }
+        //public MoodAnalyzer(string message)
+        //{
+        //    this.message = message;
+        //}
         //This method analyzes mood
-        public string AnalyseMood()
+        public string AnalyseMood(string message)
         {
             //if condition for to check happy word is present is or not
             if (message.ToLower().Contains("sad"))
