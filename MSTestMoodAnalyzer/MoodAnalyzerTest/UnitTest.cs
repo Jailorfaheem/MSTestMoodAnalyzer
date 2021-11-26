@@ -24,6 +24,56 @@ namespace MoodAnalyserTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        //Test Case 3.1 : Given null mood should throw mood exception indicating null mood
+        [TestMethod]
+        public void getCustomNullException()
+        {
+            ///AAA method
+            //Arrange
+            string expected = "message should not be null";
+            //creating object of moodanalyzer class and passing null
+            MoodAnalyzer modeAnalyzer = new MoodAnalyzer(" ");
+
+            try
+            {
+                //Act
+                string actual = modeAnalyzer.AnalyseMood();
+
+            }
+            catch (CustomException ex)
+            {
+
+                //Assert
+                //comparing actual and expected value
+                Assert.AreEqual(expected, ex.Message);
+            }
+
+        }
+        //Test case 3.2 : Given empty message should throw mood exception indicating empty mood
+        [TestMethod]
+        public void getCustomEmptyException()
+        {
+            ///AAA method
+            //Arrange
+            string expected = "message should not be empty";
+            //creating object of moodanalyzer class and passing null
+            MoodAnalyzer modeAnalyzer = new MoodAnalyzer(string.Empty);
+
+            try
+            {
+                //Act
+                string actual = modeAnalyzer.AnalyseMood1();
+
+            }
+            catch (CustomException ex)
+            {
+
+                //Assert
+                //comparing actual and expected value
+                Assert.AreEqual(expected, ex.Message);
+            }
+
+        }
 
     }
 
